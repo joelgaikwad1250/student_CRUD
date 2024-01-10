@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<title>Students Application Form</title>
+</head>
+<h1 id="heading1" style="color: black; text-align: center;">Students Application Form</h1>
+<style>
+	#heading1 {
+		border: 10px solid blanchedalmond;
+		padding: 5px;
+	}
+</style>
+<br>
+
+<body onload="getAllStudentDetails()">
+
+
+	<div class="container">
+
+		<!--<button type="button" class="btn btn-primary" style="float: right; scroll-margin-top: 30px;">Login</button> -->
+
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+			style="background-color:black; border-color: black; color: solid black">Add Student</button>
+		<br>
+		<br>
+
+		<table class="table" style="border: 5px solid blanchedalmond;">
+			<thead>
+				<tr>
+
+					<th scope="col">Name</th>
+					<th scope="col">Division</th>
+					<th scope="col">Email ID</th>
+					<th scope="col">Marks</th>
+					<th scope="col">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Action</th>
+				</tr>
+			</thead>
+			<tbody id="myTable">
+
+
+			</tbody>
+		</table>
+
+
+
+		<!-- Employee Add Modal Start-->
+
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel" style="color: black; text-align: center;"> Add
+							Application Form</h5>
+						<style>
+							#exampleModalLabel {
+								border: 5px solid blanchedalmond;
+								padding: 5px;
+							}
+						</style>
+
+
+
+
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="recipient-name" class="col-form-label">Name:</label>
+								<input type="text" class="form-control" id="add-name">
+							</div>
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Division:</label>
+								<input type="text" class="form-control" id="add-division">
+							</div>
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Email:</label>
+								<input type="text" class="form-control" id="add-email">
+							</div>
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Marks:</label>
+								<input type="text" class="form-control" id="add-marks">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal"
+							style="background-color:black; border-color: black; color: solid black">CLOSE</button>
+						<button type="button" class="btn btn-primary" onclick="addStudent();"
+							style="background-color:black; border-color: black; color: solid black">ADD STUDENT</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+
+
+
+		<!-- Employee Add Modal End-->
+
+
+	
+	
+		<!-- Employee update Modal Start-->
+
+
+		<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel2" style="color: black; text-align: center;"> Update Application Form</h5>
+						<style>
+							#exampleModalLabel2 {
+								border: 5px solid blanchedalmond;
+								padding: 5px;
+							}
+						</style>
+
+
+
+
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="recipient-name" class="col-form-label">Name:</label>
+								<input type="text" class="form-control" id="edit-name">
+								<input type="hidden" id="edit-id">
+							</div>
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Division:</label>
+								<input type="text" class="form-control" id="edit-division">
+							</div>
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Email:</label>
+								<input type="text" class="form-control" id="edit-email">
+							</div>
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Marks:</label>
+								<input type="text" class="form-control" id="edit-marks">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal"
+							style="background-color:black; border-color: black; color: solid black">CLOSE</button>
+						<button type="button" class="btn btn-primary" 
+							style="background-color:black; border-color: black; color: solid black" onclick="updateStudent2();">UPDATE STUDENT</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+
+
+
+		<!-- Employee Add Modal End-->
+	
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<script>
+		function getAllStudentDetails() {
+
+			$
+				.ajax({
+					type: "GET",
+					contentType: "application/json",
+					url: "/Read-Student",
+
+					success: function (data) {
+
+						var tableValue = '';
+
+						for (var i = 0; i < data.length; i++) {
+							tableValue += '<tr>'
+								+ '<td>'
+								+ data[i].name
+								+ '</td>'
+								+ '<td>'
+								+ data[i].division
+								+ '</td>'
+								+ '<td>'
+								+ data[i].email_id
+								+ '</td>'
+								+ '<td>'
+								+ data[i].marks
+								+ '</td>'
+								+ '<td>'
+								+ '<button type="button" class="btn btn-info" data-toggle="modal" data-target="#updateModal"onclick="updateStudent('+data[i].id+')">EDIT</button>    <button type="button" class="btn btn-danger"  onclick="delete1('+data[i].id+');">DELETE</button>'
+								+ '</td>' + '</tr>';
+						}
+
+						$('#myTable').html(tableValue);
+
+					},
+					error: function (e) {
+						alert('failed')
+					}
+				});
+
+		}
+
+		function addStudent() {
+
+			const studName = document.getElementById('add-name').value;
+			const studDivision = document.getElementById('add-division').value;
+			const studEmail = document.getElementById('add-email').value;
+			const studMarks = document.getElementById('add-marks').value;
+
+			const Student = {
+				
+
+				name: studName,
+				email_id: studEmail,
+				division: studDivision,
+				marks: studMarks
+			}
+
+			console.log(Student)
+
+			$.ajax({
+				type: "POST",
+				contentType: "application/json",
+				url: "/Save-Student",
+				data: JSON.stringify(Student),
+
+				success: function (data) {
+					getAllStudentDetails();
+
+					alert(data)
+
+				},
+				error: function (e) {
+					alert('failed')
+				}
+			});
+
+		}
+		 function updateStudent(id)
+		 {
+			 $.ajax({
+				type: "GET",
+				contentType: "application/json",
+				url: "/Find-by-id/"+id,
+				
+
+				success: function (data) {
+					getAllStudentDetails();
+					console.log(data)
+					$('#edit-name').val(data.name);
+					$('#edit-division').val(data.division);
+					$('#edit-email').val(data.email_id);
+					$('#edit-marks').val(data.marks);
+					$('#edit-id').val(data.id);
+					
+
+		
+
+				},
+				error: function (e) {
+					alert('failed')
+				}
+			});
+			 
+		 }
+		 function updateStudent2()
+		 {
+			const studName = document.getElementById('edit-name').value;
+			const studDivision = document.getElementById('edit-division').value;
+			const studEmail = document.getElementById('edit-email').value;
+			const studMarks = document.getElementById('edit-marks').value;
+				const id = document.getElementById('edit-id').value;
+
+			const Student = {
+                 id: id,
+				name: studName,
+				email_id: studEmail,
+				division: studDivision,
+				marks: studMarks
+			}
+
+			console.log(Student)
+
+			$.ajax({
+				type: "PUT",
+				contentType: "application/json",
+				url: "/Update-by-id/",
+				data: JSON.stringify(Student),
+
+				success: function (data) {
+					getAllStudentDetails();
+
+					alert(data)
+
+				},
+				error: function (e) {
+					alert('failed')
+				}
+			});
+		 }
+		 function delete1(id)
+		 {
+			  
+			 	$.ajax({
+				type: "DELETE",
+				contentType: "application/json",
+				url: "/Delete-by-id/"+id,
+
+				success: function (data) {
+					getAllStudentDetails();
+					
+
+					alert('Deleted')
+
+				},
+				error: function (e) {
+					alert('failed')
+				}
+			});
+		 }
+
+		 
+	</script>
+</body>
+
+</html>
